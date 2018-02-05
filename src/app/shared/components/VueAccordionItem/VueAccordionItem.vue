@@ -1,20 +1,21 @@
 <template>
   <div :class="$style.vueAccordionItem">
     <h1 @click="click">Header</h1>
-    <slot v-if="open" />
-    <collapse-animation>
-      <slot v-if="open" />
-    </collapse-animation>
+    <vue-collapse :show="show">
+      <section>
+        <slot />
+      </section>
+    </vue-collapse>
   </div>
 </template>
 
 <script lang="ts">
-  import CollapseAnimation from '../../animations/CollapseAnimation/CollapseAnimation.vue';
+  import VueCollapse from '../VueCollapse/VueCollapse.vue';
 
   export default {
     name: 'VueAccordionItem',
     components: {
-      CollapseAnimation,
+      VueCollapse,
     },
     props: {},
     data(): any {
@@ -23,11 +24,16 @@
         open: false,
       };
     },
-    computed: {},
+    computed: {
+      show() {
+        console.log(this.open);
+        return this.open;
+      }
+    },
     methods: {
       click() {
         this.$parent.openItem(this.idx);
-      }
+      },
     },
     created() {
       if (this.$parent) {

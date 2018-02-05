@@ -4,7 +4,7 @@
     @enter="enter"
     @beforeLeave="beforeLeave"
     @leave="leave"
-    v-bind:css="false"
+    :css="false"
   >
     <slot />
   </transition>
