@@ -54,9 +54,8 @@
       },
     },
     beforeDestroy() {
-      this.tabs = [];
-      this.tabHeader = [];
-      this.currentTab = 0;
+      this.items = [];
+      this.openItems = [];
     }
   };
 </script>

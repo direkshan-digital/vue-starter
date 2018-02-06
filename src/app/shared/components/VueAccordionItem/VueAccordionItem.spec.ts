@@ -8,8 +8,6 @@ describe('VueAccordionItem.vue', () => {
 
   test('renders component', () => {
     const wrapper = mount(VueAccordionItem, { localVue, mocks: { $style } });
-
-    expect(wrapper.find('h1').text()).toBe('VueAccordionItem');
   });
 
 });
