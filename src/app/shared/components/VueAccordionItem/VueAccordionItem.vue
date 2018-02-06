@@ -39,12 +39,12 @@
     },
     computed: {
       show() {
-        return this.open;
+        return this.open || this.initOpen;
       },
       iconClasses() {
         const classes = [this.$style.icon];
 
-        if (this.open) {
+        if (this.show) {
           classes.push(this.$style.open);
         }
 

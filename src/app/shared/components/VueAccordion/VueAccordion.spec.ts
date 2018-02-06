@@ -72,7 +72,7 @@ describe('VueAccordion.vue', () => {
       mocks: { $style },
       propsData: {
         multi: false,
-      }
+      },
     }) as any;
 
     expect(wrapper.vm.openItems).toEqual([]);
@@ -93,7 +93,7 @@ describe('VueAccordion.vue', () => {
       mocks: { $style },
       propsData: {
         multi: true,
-      }
+      },
     }) as any;
 
     expect(wrapper.vm.openItems).toEqual([]);
