@@ -24,8 +24,12 @@
     computed: {},
     methods: {
       openItem(idx: number) {
-        if (this.multi) {
-
+        if (this.multi && this.openItems.indexOf(idx) > -1) {
+          this.openItems = this.openItems.filter((item: number) => item !== idx)
+        } else if (this.multi) {
+          this.openItems.push(idx);
+        } else if (this.openItems.indexOf(idx) > -1) {
+          this.openItems = [];
         } else {
           this.openItems = [idx];
         }
@@ -41,6 +45,11 @@
         item.$data.idx = this.items.length;
 
         this.items.push(item);
+
+        if (item.initOpen) {
+          this.openItems.push(item.$data.idx);
+        }
+
         this.handleItems();
       },
     },
